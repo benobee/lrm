@@ -1,0 +1,169 @@
+#LRM-carousel{
+  .mobileHeader{
+      z-index:2;
+      width:60%;
+      margin:0 auto;
+      text-align:center;
+	    @media screen and (min-width:650px){      
+          display:none;
+      }
+  }
+  .mobileControls{
+      position:relative;   
+      @media screen and (min-width:650px){
+          display:none;
+      }
+      .controls{
+          z-index:9999999;
+          padding:1em;
+          height:44px;
+          position:relative;
+          font-size:2em;
+          .controlsRight > .next{
+              color:@primary;
+              background:@darkGrey;
+              padding:0.3em;
+              position:absolute;
+              right:0;    
+          }
+          .controlsLeft > .prev{
+              color:@primary;
+              background:@darkGrey;
+              padding:0.3em;
+              position:absolute;
+              left:0;
+          }
+      }
+  }
+  .info-box{
+        @media screen and (max-width:650px){
+            display:none;
+        }
+        opacity:0;
+        transition:0.4s;
+        -webkit-transition:0.4s;
+        border-radius:30px;
+        border:3px solid black;
+        box-shadow:1px 2px 5px black;
+        &:after{
+            content: '◄';
+            position:absolute;
+            right:50%;
+            bottom:-15px;
+            font-size:1.5em;
+            color:white;
+            z-index:-2;
+            text-shadow:-6px 0px black;
+            transform:rotate(-90deg) scale(1,2) translate(-5px,0px);
+            -moz-transform:rotate(-90deg) scale(1,2) translate(-5px,0px);
+            -o-transform:rotate(-90deg) scale(1,2) translate(-5px,0px);
+            -webkit-transform:rotate(-90deg) scale(1,2) translate(-5px,0px);
+        }
+        width:12em;
+        padding:0.8em;
+        font-family:@mainFont;
+        position:absolute;
+        bottom:2.5em;
+        right:2em;
+        z-index:2;
+        background:white;
+        .title{
+            color:black;
+            transition:0.2s;
+            -webkit-transition:0.2s;
+            margin-bottom:0.4em;
+            font-family: 'Bangers', cursive;
+            text-transform: uppercase;
+            font-size:1.2em !important;
+            line-height:1em !important;
+        }
+        .excerpt{
+            transition:0.5s;
+            -webkit-transition:0.5s;
+            display:none;
+            opacity:0;
+            color:black;
+            p{
+              line-height: 1.2em !important;
+              font-size:0.8em !important;
+            }
+        }
+        .controls{
+            bottom:0;
+            padding-top:0.4em;
+            transition:0.3s;
+            -webkit-transition:0.3s;
+            .controlsLeft{
+                color:@darkGrey;
+                float:left;
+                .action{
+                   cursor:pointer;
+                   text-transform:uppercase;
+                   border-radius:3px;
+                   padding:0.2em;
+                   padding-left:0.5em;
+                   padding-right:0.5em;
+                   font-size:0.8em;
+                   background:@darkGrey;
+                   color:@primary;
+                }  
+                .current{
+                     &:after{
+                       padding-left:0.4em;
+                       content:'/';
+                     }
+                }
+                div{
+                   display:inline-block;
+                }
+            }
+            .controlsRight{         
+                float:right;
+                div{
+                    transition:0.2s;
+                    -webkit-transition:0.2s;
+                    display:inline-block;
+                    cursor:pointer;
+                    color:#b7b7b7;
+                    &:hover{
+                        color:@highlight;
+                    }
+                }         
+            }
+        }
+    }
+
+    .owl-carousel{
+        height:21em;
+        @media screen and (max-width:768px){
+            height:12em;
+        }
+        background:black;
+        .item{
+            .imageWrapper{
+              overflow:hidden;
+               height:21em;
+               width:100%;
+               .image{
+                  min-height:400px;
+                  background-size:cover;
+                  background-position:center center;
+               }
+               img{
+                 height:auto;
+                 width:100%;
+               }
+              @media screen and (max-width:768px){
+                height:12em;
+              }
+            }
+            .content{
+              padding:0.5em;
+              font-size:0.9em;
+            }
+        }
+    }
+    .previewBody{
+        overflow-y:scroll;
+    }
+}
