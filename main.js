@@ -1,4 +1,4 @@
-import * as core from './imports/modules/index.js';
+import * as core from './src/modules/index.js';
 
 const css = require("./main.less");
 
