@@ -1,7 +1,13 @@
-import carousel from './carousel.js';
-import newsletter from './newsletter.js';
+import carousel from './carousel';
+import newsletter from './newsletter';
+import homepage from './homepage';
+import postWidget from './postWidget';
+import post from './post';
 
 export {
 	carousel,
-	newsletter
+	newsletter,
+	homepage,
+	postWidget,
+	post
 }

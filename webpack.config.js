@@ -205,7 +205,7 @@ plugins.push(loaderOptions);
 
 // @plugin: compile all less files into master CSS
 const CSSBundle = new ExtractTextPlugin({ 
-    filename: isProduction ? "[name].[hash].bundle.css" : "bundle.css"
+    filename: "bundle.css"
 });
 
 plugins.push(CSSBundle);
@@ -250,16 +250,16 @@ const minify = new webpack.optimize.UglifyJsPlugin({
         warnings: false 
     },
     output: {
-        comments: false
+        comments: isProduction ? false : true,
     },
     minimize: isProduction ? true : false,
     debug: false,
     sourceMap: true,
-    minify: true
+    minify: isProduction ? true : false,
 });
 
 //if production is set, js will be minified
-isProduction ? plugins.push(minify) : false;
+plugins.push(minify);
 
 //output to config object
 WEBPACK_CONFIG.plugins = plugins;
@@ -271,7 +271,7 @@ const output = {
     output: {
           publicPath: '/',
           path: __dirname + "/template/assets",
-          filename: isProduction ? "[name].[hash].bundle.js" : "bundle.js"
+          filename: "bundle.js"
     }
 };
 

@@ -21,7 +21,7 @@ const carousel = {
             items: 1,
             autoplay: true,
             loop: true,
-            mouseDrag: false,
+            mouseDrag: true,
             autoWidth: false,
             nav: true,
             navText: true,

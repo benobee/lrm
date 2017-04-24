@@ -1,0 +1,82 @@
+#collection-56c368da9f7266b6a2b43218 {
+    #content {
+        @media screen and (max-width:768px) {
+            .summary-item {
+                margin-bottom: 0 !important;
+            }
+            .sqs-col-12 > div:nth-child(3) {
+                display: none;
+            }
+            .sqs-col-12 > div:nth-child(n+6) {
+                display: none;
+            }
+        }
+        .button.load-more{
+            background:black;
+            color:@primary;
+            text-align: center;
+            max-width: 200px;
+            padding: 0.5em 1em;
+            margin: 0 auto;
+        }
+        .categoryHeader {
+            height: 1.5em;
+            line-height: 1.5em;
+            &.custom-icon {
+                .action {
+                    .categoryLink {
+                        top: 1em !important;
+                    }
+                }
+            }
+            .svg-icon {
+                position: relative;
+                display: inline-block;
+                width: 50%;
+                svg {
+                    transform: translate(0,3px);
+                    -webkit-transform: translate(0,3px);
+                    -moz-transform: translate(0,3px);
+                    -o-transform: translate(0,3px);
+                    max-height: 50px;
+                    fill: @highlight;
+                }
+            }
+            .action {
+                height: 1.2em;
+                line-height: 1.2em;
+                display: inline-block;
+                opacity: 1;
+                .categoryLink {
+                    position: absolute;
+                    top: 0.6em;
+                    padding: 0.3em;
+                    font-family: @mainFont;
+                    margin-left: 2em;
+                    font-size: 0.8em;
+                    transition: 0.2s;
+                    padding-left: 1.5em;
+                    padding-right: 1.5em;
+                    background: @darkGrey;
+                    color: @primary;
+                    border-radius: 2px;
+                    &:hover {
+                        background: @menu;
+                    }
+                }
+            }
+            .header {
+                font-size: 1em !important;
+                height: 1.5em;
+                display: inline-block;
+                font-family: @mainFont;
+                font-weight: 500;
+                font-size: 1.8em !important;
+                letter-spacing: 0.5px;
+                i {
+                    color: @highlight;
+                }
+            }
+        }
+    }
+}
