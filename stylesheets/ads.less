@@ -1,3 +1,26 @@
+.ad.mobile{
+    margin-top: 8px;
+    text-align: center;
+    display:flex;
+    justify-content:center;
+    overflow:hidden;
+    width:100%;
+    @media screen and (min-width:768px) {
+      display:none;
+    }  
+}
+
+.ad.desktop{
+    text-align: center;
+    display:flex;
+    justify-content:center;
+    overflow:hidden;
+    width:100%;
+    @media screen and (max-width:817px) {
+      display:none;
+    }
+}
+
 .columnAd {
     width: 300px;
     overflow: hidden;
@@ -44,3 +67,111 @@
         display: none !important;
     }
 }
+
+.sumome-stylebufferbottom-shim{
+  display:none !important;
+}
+
+#header .navbar .menu .nav-image .tagline{
+  padding-top:13px;
+}
+
+.is-mobile{
+  #content{
+    display:block !important;
+  }
+}
+
+@media screen and (max-width:768px){
+  #collection-56c368da9f7266b6a2b43218{
+    &.is-mobile{
+      display:block !important;
+    }
+    #content{
+      display:none;
+    }    
+  }
+}
+
+.commentCount{
+  @media screen and (max-width:768px){
+    display:none;
+  }
+}
+
+#footer{
+     @media screen and (max-width:768px){
+       margin-top:0;
+       .spacer-block{
+         display:none;
+       }
+       h1{
+         line-height:1.5em;
+       }
+     }
+}
+#mcsignuppost{
+  .ad iframe{
+      width:100% !important;
+      height:auto !important;
+  }
+}
+.app-module.popup.newsletter {
+     @media screen and (max-width:768px){
+        display:none !important;
+        visibility:hidden !important;
+     }
+}
+
+.blog-post{
+  .meta{
+    margin-bottom:0.5em;
+  }
+  @media screen and (max-width:768px){
+  padding:0.5 !important;
+  img{
+    width:100%;
+    height:auto;
+  }
+  .title{
+      a{
+        font-size:0.85em !important;
+      }
+      padding:1em 0.5em 0.5em 0.5em!important;
+      letter-spacing:0 !important;
+    }
+  }
+}
+
+.socialShareButtons{
+  margin-bottom:1em;
+}
+.sidebarWrapperPost{
+  margin-top:1em;
+}
+.sticky-ad{
+  padding:0 !important;
+  overflow:hidden;
+  &.fixed{
+    position:fixed;
+    top:0;
+    margin-top: 60px;
+  }
+  &.bottom{
+    position:static !important;
+  }
+}
+
+.mobile-ad-top{
+  text-align:center;
+  @media screen and (min-width:769px){
+      display:none;
+  }
+}
+
+.sumome-share-client-wrapper{
+  @media screen and (max-width:768px){
+    //display:none !important;
+  }
+}
+

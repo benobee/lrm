@@ -20,8 +20,8 @@
             margin: 0 auto;
         }
         .categoryHeader {
-            height: 1.5em;
-            line-height: 1.5em;
+            display:flex;
+            align-items:center;
             &.custom-icon {
                 .action {
                     .categoryLink {
@@ -30,33 +30,21 @@
                 }
             }
             .svg-icon {
-                position: relative;
-                display: inline-block;
                 width: 50%;
+                margin-right:0.25em;
                 svg {
-                    transform: translate(0,3px);
-                    -webkit-transform: translate(0,3px);
-                    -moz-transform: translate(0,3px);
-                    -o-transform: translate(0,3px);
                     max-height: 50px;
                     fill: @highlight;
                 }
             }
             .action {
-                height: 1.2em;
-                line-height: 1.2em;
-                display: inline-block;
+                font-size: 1.8em;
                 opacity: 1;
                 .categoryLink {
-                    position: absolute;
-                    top: 0.6em;
-                    padding: 0.3em;
+                    margin-left:1em;
+                    padding: 0em 1em;
                     font-family: @mainFont;
-                    margin-left: 2em;
-                    font-size: 0.8em;
                     transition: 0.2s;
-                    padding-left: 1.5em;
-                    padding-right: 1.5em;
                     background: @darkGrey;
                     color: @primary;
                     border-radius: 2px;
@@ -66,12 +54,9 @@
                 }
             }
             .header {
-                font-size: 1em !important;
-                height: 1.5em;
-                display: inline-block;
+                font-size: 1.8em;
                 font-family: @mainFont;
                 font-weight: 500;
-                font-size: 1.8em !important;
                 letter-spacing: 0.5px;
                 i {
                     color: @highlight;

@@ -1,24 +1,34 @@
 import $ from 'jquery';
-import Scrollmap from 'scrollmap';
+import Scrollmap from './scrollmap';
 
 const post = {
 	init() {
-		Scrollmap.add('.sidebarWrapperPost', {
+		Scrollmap.add('.sidebar .sqs-layout', {
 			onTriggerIn() {
-				$('.sidebar-ad.long').removeClass("fixed");
+				$('.sticky-ad').removeClass("fixed");
 			},
 			onTriggerOut() {
-				$('.sidebar-ad.long').addClass("fixed");
+				$('.sticky-ad').addClass("fixed");
+			},
+			surfaceVisible: 0
+		});
+
+		Scrollmap.add('.sidebarWrapperPost', {
+			onTriggerIn() {
+				$('.sticky-ad').removeClass("fixed");
+			},
+			onTriggerOut() {
+				$('.sticky-ad').addClass("fixed");
 			},
 			surfaceVisible: 0
 		});
 
 		Scrollmap.add('#footer', {
 			onTriggerIn() {
-				$('.sidebar-ad.long').addClass("bottom");
+				$('.sticky-ad').addClass("bottom");
 			},
 			onTriggerOut() {
-				$('.sidebar-ad.long').removeClass("bottom");
+				$('.sticky-ad').removeClass("bottom");
 			},
 			surfaceVisible: 0
 		});				

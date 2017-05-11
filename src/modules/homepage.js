@@ -1,14 +1,18 @@
 import $ from 'jquery';
 import 'owl.carousel';
 import Util from './util';
-import Component from 'component-literal';
 
 const homepage = {
 	init(){
 		this.isMobile = Util.isMobile();
 		this.isPhone = this.checkWidth();
-		this.executeContent();
 
+		const homepage = $('#collection-56c368da9f7266b6a2b43218');
+
+		if (homepage.length > 0) {
+			this.executeContent();
+		}
+		
 		console.log(this);
 	},
 	checkWidth() {
@@ -18,10 +22,47 @@ const homepage = {
 			return false;
 		}
 	},
+	deployAd() {
+		/*** HEAD ***/
+
+		const headScript = document.createElement("script");
+
+		$("#playwireBody").before(headScript);
+
+		$('#headScript').append(headScript);
+
+		headScript.textContent = `console.log("( running PLAYWIRE head script )");`;
+
+		$(headScript).attr("src", "//aka-cdn-ns.adtechus.com/dt/common/DAC.js");
+
+		/*** BODY ***/
+
+		const bodyScript = document.createElement("script");
+
+		$("#playwireBody").html(bodyScript);
+
+		bodyScript.textContent = `console.log("( running PLAYWIRE body script )");ADTECH.config.page = { protocol: 'https', server: 'ads.intergi.com', network: '5205.1', pageid: 0, params: { loc: '100' }};`;
+
+		/*** AD ***/
+
+		const adContainer = `<div id="4537701"><noscript><a href="http://ads.intergi.com/adlink|3.0|5205.1|4537701|0|3055|ADTECH;loc=300;key=key1+key2+key3+key4;alias=" target="_blank"><img src="http://ads.intergi.com/adserv|3.0|5205.1|4537701|0|3055|ADTECH;loc=300;key=key1+key2+key3+key4;alias=" border="0" width="320" height="50"></a></noscript></div>`;
+
+		$("#canvasWrapper").append(adContainer);
+
+		const adScript = document.createElement("script");
+
+		$('#4537701').after(adScript);
+
+		adScript.textContent = `console.log("( running PLAYWIRE ad script )");
+			ADTECH.config.placements[4537701] = { sizeid: 3055, params: { alias: '', target: '_blank' }};
+			ADTECH.loadAd(4537701);`;
+	},
 	executeContent() {
 		if (this.isMobile && this.isPhone){
-			$("#canvasWrapper").addClass("is-mobile");
-			this.renderInitialPosts();
+			$("body").addClass("is-mobile");
+			$.when( this.renderInitialPosts() ).then(() => {
+				//this.deployAd();
+			});
 		}
 	},
 	getData(url) {
@@ -61,8 +102,10 @@ const homepage = {
 		});
 	},
 	renderInitialPosts() {
+		$('#collection-56c368da9f7266b6a2b43218 #content').html("");
+
 		$.when( this.getData('/news') ).done((data) => {
-			const $collectionList = $('#collection-56c368da9f7266b6a2b43218 #content .sqs-col-12:nth-child(1) > div:nth-child(5)');
+			const $collectionList = $('#collection-56c368da9f7266b6a2b43218 #content');
 
 			const html = this.generatePostHTML(data);
 
@@ -96,8 +139,6 @@ const homepage = {
 		$.when( this.getData(url) ).done((data) => {
 			this.data = data;
 			this.activeScroll = true;
-
-			const $collectionList = $('#collection-56c368da9f7266b6a2b43218 #content .sqs-col-12:nth-child(1) > div:nth-child(5)');
 
 			const html = this.generatePostHTML(data);
 
